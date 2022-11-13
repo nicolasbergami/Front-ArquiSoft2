@@ -26,7 +26,7 @@ const ItemDetail = ({ item }) => {
         <div class="container">
             <div class="card">
                 <div class="card-body">
-                    <h3>{item.nombre}</h3>
+                    <h3>{item.titulo}</h3>
                     <h6 class="card-subtitle">Compra Totalmente Segura em InmoGroup</h6>
                     <div class="row">
                         <div class="col-lg-5 col-md-5 col-sm-6">
@@ -34,12 +34,12 @@ const ItemDetail = ({ item }) => {
                         </div>
                         <div class="col-lg-7 col-md-7 col-sm-6">
                         <h2 class="mt-5 producto-precio">
-                                Precio: ${item.precio}
+                                <strong>Precio:</strong> ${item.precio}
                             </h2>
                             <h4 class="box-title mt-5">Descripcion</h4>
                             <p>{item.descripcion}</p>
-                            <p>Provincia: {item.provincia}</p>
-                            <p>Ciudad: {item.ciudad}</p>
+                            <p><strong>Provincia:</strong> {item.provincia}</p>
+                            <p><strong>Ciudad:</strong> {item.ciudad}</p>
                             
                            
                           
@@ -63,11 +63,11 @@ const ItemDetail = ({ item }) => {
                                             <td>{item.ciudad} </td>
                                         </tr>
                                         <tr>
-                                            <td>barrio</td>
-                                            <td>Año {item.barrio}</td>
+                                            <td>Barrio</td>
+                                            <td>{item.barrio}</td>
                                         </tr>
                                         <tr>
-                                            <td>precio </td>
+                                            <td>Precio </td>
                                             <td>{item.precio} USD</td>
                                         </tr>
                                         
