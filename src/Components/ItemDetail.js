@@ -36,10 +36,11 @@ const ItemDetail = ({ item }) => {
                         <h2 class="mt-5 producto-precio">
                                 <strong>Precio:</strong> ${item.precio}
                             </h2>
-                            <h4 class="box-title mt-5">Descripcion</h4>
-                            <p>{item.descripcion}</p>
-                            <p><strong>Provincia:</strong> {item.provincia}</p>
-                            <p><strong>Ciudad:</strong> {item.ciudad}</p>
+                            <h5 className="producto-precio" >En 6x${Math.trunc( item.precio/6)} cuotas sin interes!</h5>
+                            <h3 class="box-title mt-5">Descripcion</h3>
+                            <h6>{item.descripcion}</h6>
+                            <h5><strong>Provincia:</strong> {item.provincia}</h5>
+                            <h5><strong>Ciudad:</strong> {item.ciudad}</h5>
                             
                            
                           

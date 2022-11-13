@@ -124,7 +124,7 @@ const ItemListContainer = () => {
                 :
                 <ol className="container">
                   {productos && productos.map((producto) => (
-                    <li key={producto.id} className="fila-producto">
+                    <li key={producto.id} className="fila-producto container">
                       <div>
                         <div className="imagen-producto">
                           <img src={producto.img} width="350" height="250px">
@@ -132,8 +132,9 @@ const ItemListContainer = () => {
                         </div>
                         <div className="titulo-producto">
                         <h2 className="titulo-product" >{producto.titulo}</h2>
-                        <h4 className="producto-precio">Precio: $USD{producto.precio}</h4>
-                        <Link to={`/item/${producto.id}`} className="btn btn-primary " >Ver Más</Link>
+                        <h4 className="producto-precio">Precio: $USD {producto.precio}</h4>
+                        <h6 className="producto-precio" >En 6x${Math.trunc( producto.precio/6)} cuotas sin interes!</h6>
+                        <Link  to={`/item/${producto.id}`} className="btn btn-primary VerMas " >Ver Más</Link>
                         </div>
                       </div>
 

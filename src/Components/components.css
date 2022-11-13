@@ -188,7 +188,7 @@ input:hover{
     justify-content: flex-end;
     padding-bottom: 25px;
     margin-bottom: 30px;
-    margin-right: 35rem;
+    margin-right: 30rem;
 }
 .inputBuscar{
     width: 50% !important;
@@ -200,7 +200,7 @@ input:hover{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: 400;
     /* margin: 100px; */
-    margin: 10px;
+   
 }
 .imagen-producto{
     display: inline-block;
@@ -208,13 +208,13 @@ input:hover{
 .titulo-product{
     font-size: 2rem;
     margin: 10px;
-    padding-bottom: 30px;
+    
 }
 .fila-producto{
     border: solid 1px lightgray;
     padding-bottom: 20px;
     transition: width 1s, height 1s, background-color 2s, transform 2s;
-    width: 80rem;
+    width: 75rem;
     height: 19rem;
 }
 .fila-producto:hover{
@@ -225,6 +225,7 @@ input:hover{
 .producto-precio{
     color: green;
     font-style: oblique;
+    
 }
 .loader-container {
     width: 100%;
@@ -257,4 +258,7 @@ input:hover{
 .titulo-cargando{
 font-style: italic;
 color: #dee2e6;
+}
+.VerMas{
+    width: 8rem;height: 3rem;font-size: 1.9rem;margin: auto;
 }
