@@ -13,17 +13,15 @@ export function NavBar() {
       <Container>
         <Navbar.Brand >
           <Link to="/">
-            <img src="https://cdn.pixabay.com/photo/2012/04/24/18/13/bicycle-40756_960_720.png" className="logo" />
+            <img src="https://www.zarla.com/images/zarla-real-viva-1x1-2400x2400-20210603-hdvvry8jj63dddkjqbjf.png?crop=1:1,smart&width=250&dpr=2" className="logo" />
 
           </Link>
-          BiciMundo
+          InmoGroup
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav " className="justify-content-end">
           <Nav className="justify-content-center">
               <Link className="navbar" to='/' >Home </Link>
-              <Link className="navbar" to='/Contacto' >Contacto </Link>
-            <CartWidget />
           </Nav>
         </Navbar.Collapse>
       </Container>

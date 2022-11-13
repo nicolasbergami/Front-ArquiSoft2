@@ -1,17 +1,13 @@
 import React from "react";
 import Carousel from 'react-bootstrap/Carousel';
-import banner1 from '../img/bici banner 1.jpg';
-import banner2 from '../img/bici banner 2.jpg';
-import banner3 from '../img/bici banner 3.png';
+
 import '../Components/components.css';
 import { useEffect, useState } from "react";
-import { pedirDatos } from "../helpers/pedirDatos"
-import ItemList from "./ItemList";
+
 import axios from "axios"
 import { Link } from "react-router-dom";
-import { useParams } from 'react-router-dom'
-import { collection, getDocs, query, where } from "firebase/firestore"
-import { db } from '../firebase/config'
+
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -28,7 +24,7 @@ const ItemListContainer = () => {
   const [loading, setLoading] = useState(false)
 
   const peticionGet = async () => {
-    await axios.get("https://jsonplaceholder.typicode.com/users")
+    await axios.get("http://localhost:3010/productos")
       .then(response => {
         setProductos(response.data)
         setTablaProductos(response.data)
@@ -47,21 +43,21 @@ const ItemListContainer = () => {
 
   const filtrar = (terminoBusqueda) => {
     var resultadosBusqueda = tablaProductos.filter((elemento) => {
-      if (elemento.name.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())
-        || elemento.company.name.toString().toLowerCase().includes(terminoBusqueda.toLowerCase()
-          || elemento.address.city.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())
-        )) {
+      if (elemento.titulo.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())
+        || elemento.ciudad.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())
+          || elemento.barrio.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())
+        ) {
         return elemento;
       }
-      if(productos.length == 0){
+      if (productos.length == 0) {
         setLoading(true)
-      }else{
+      } else {
         setLoading(false)
       }
     });
     setProductos(resultadosBusqueda);
   }
-  
+
 
 
   return (
@@ -82,33 +78,33 @@ const ItemListContainer = () => {
         <Carousel.Item>
           <img
             className="d-block w-100  imagen_carrousel"
-            src={banner1}
+            src="https://i0.wp.com/moovemag.com/wp-content/uploads/2020/12/inversion-inmobiliaria.jpg?fit=700%2C459&ssl=1"
             alt="Second slide"
           />
 
           <Carousel.Caption>
-            <h3 className="CAPTION_CARROUSEL">Hasta 50% OFF</h3>
-            <p className="CAPTION_CARROUSEL">En la mayoria de nuestros productos</p>
+            <h3 className="CAPTION_CARROUSEL">Busca tu nuevo hogar en nuestra Web</h3>
+            <p className="CAPTION_CARROUSEL">Todas nuestras viviendas</p>
 
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img
             className="d-block w-100 imagen_carrousel"
-            src={banner3}
+            src="https://quispeymamani.com/blog/wp-content/uploads/2021/02/inversio%CC%81n-inmobiliaria-ingresos.jpg"
             alt="Third slide"
           />
 
           <Carousel.Caption>
-            <h3 className="CAPTION_CARROUSEL">Envios a todo el País</h3>
+            <h3 className="CAPTION_CARROUSEL">INVERTI TU DINERO</h3>
             <p className="CAPTION_CARROUSEL">
-              Vía ANDREANI
+              En proyectos en pozo
             </p>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
       <div>
-        <h2 className="productos-h2">Nuestros Productos</h2>
+        <h2 className="productos-h2">Nuestros Clasificados</h2>
         <div>
 
           <div className="containerInput">
@@ -120,10 +116,10 @@ const ItemListContainer = () => {
 
             {
               loading
-                ?<div> 
-                <h2 text-align="center">Cargando...</h2>
-                <br/>
-                <h2 text-align="center">No se encuentran Inmbuebles con esas caracterisiticas.</h2>
+                ? <div>
+                  <h2 text-align="center">Cargando...</h2>
+                  <br />
+                  <h2 text-align="center">No se encuentran Inmbuebles con esas caracterisiticas.</h2>
                 </div>
                 :
 
@@ -163,23 +159,44 @@ const ItemListContainer = () => {
                 </table>
          
               </div>*/
-              <div>
-                {productos && productos.map ((producto)=>(
-              <Card key={producto.id} className="" style={{ width: '18rem' }}>
-              <Card.Img variant="top" src={producto.img} className="img-producto"  />
-              <Card.Body>
-                <Card.Title>{producto.name}</Card.Title>
-                <Card.Text>
-                <p>Precio: ${producto.precio}</p>
-                  <p>Categoria: {producto.category}</p>
-                </Card.Text>
-                <Link to={`/item/${producto.id}`} className="btn btn-primary " >Ver Más</Link>
-            
-                
-              </Card.Body>
-            </Card>
-            ))}
-            </div>
+                /*<div>
+                  {productos && productos.map ((producto)=>(
+                <Card key={producto.id} className="" style={{ width: '18rem' }}>
+                <Card.Img variant="top" src={producto.img} className="img-producto"  />
+                <Card.Body>
+                  <Card.Title>{producto.name}</Card.Title>
+                  <Card.Text>
+                  <p>Precio: ${producto.precio}</p>
+                    <p>Categoria: {producto.category}</p>
+                  </Card.Text>
+                  <Link to={`/item/${producto.id}`} className="btn btn-primary " >Ver Más</Link>
+              
+                  
+                </Card.Body>
+              </Card>
+              ))}
+              </div>*/
+                <ol className="container">
+                  {productos && productos.map((producto) => (
+                    <li key={producto.id} className="fila-producto">
+                      <div>
+                        <div className="imagen-producto">
+                          <img src={producto.img} width="350" height="250px">
+                          </img>
+                        </div>
+                        <div className="titulo-producto">
+                        <h2 className="titulo-product" >{producto.titulo}</h2>
+                        <h4 className="producto-precio">Precio: $USD{producto.precio}</h4>
+                        <Link to={`/item/${producto.id}`} className="btn btn-primary " >Ver Más</Link>
+                        </div>
+                      </div>
+
+
+                      
+                    </li>
+
+                  ))}
+                </ol>
             }
           </div>
         </div>
