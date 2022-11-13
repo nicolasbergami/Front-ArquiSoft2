@@ -2,13 +2,14 @@ import { useEffect, useState } from "react"
 import { pedirDatos } from "../helpers/pedirDatos"
 import { useParams } from 'react-router-dom'
 import ItemDetail from "./ItemDetail"
+import '../Components/components.css';
 
 const ItemDetailContainer = () => {
 
     const [item, setItem] = useState(null)
     const [loading, setLoading] = useState(true)
 
-    const {itemId} = useParams()
+    const { itemId } = useParams()
 
     console.log(itemId)
     console.log(item)
@@ -18,7 +19,7 @@ const ItemDetailContainer = () => {
 
         pedirDatos()
             .then((res) => {
-                setItem( res.find((prod) => prod.id === Number(itemId)) )
+                setItem(res.find((prod) => prod.id === Number(itemId)))
             })
             .catch(err => console.log(err))
             .finally(() => {
@@ -32,10 +33,13 @@ const ItemDetailContainer = () => {
         <div>
             {
                 loading
-                ? <h2>Cargando Inmueble...</h2>
-                : <ItemDetail item={item} />
+                    ? <div className="loader-container">
+                        <div className="spinner"></div>
+                        <h4 className="titulo-cargando">Cargando...</h4>
+                    </div>
+                    : <ItemDetail item={item} />
             }
-            
+
 
         </div>
     )
