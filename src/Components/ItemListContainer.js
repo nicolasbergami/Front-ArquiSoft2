@@ -122,60 +122,6 @@ const ItemListContainer = () => {
                   <h2 text-align="center">No se encuentran Inmbuebles con esas caracterisiticas.</h2>
                 </div>
                 :
-
-
-                /*<div className="table-responsive">
-                <table className="table table-sm table-bordered">
-                  <thead>
-                    <tr>
-                      <th>ID</th>
-                      <th>Nombre</th>
-                      <th>Teléfono</th>
-                      <th>Nombre de Usuario</th>
-                      <th>Correo</th>
-                      <th>Sitio Web</th>
-                      <th>Ciudad</th>
-                      <th>Empresa</th>
-                    </tr>
-                  </thead>
-         
-                  <tbody>
-                    {productos && 
-                    productos.map((producto)=>(
-                      <tr key={producto.id}>
-                        <td>{producto.id}</td>
-                        <td>{producto.name}</td>
-                        <td>{producto.phone}</td>
-                        <td>{producto.username}</td>
-                        <td>{producto.email}</td>
-                        <td><Link to={`/item/${producto.id}`} className="btn btn-primary " >Ver Más</Link></td>
-                        <td>{producto.address.city}</td>
-                    
-                        <td>{producto.company.name}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-         
-                </table>
-         
-              </div>*/
-                /*<div>
-                  {productos && productos.map ((producto)=>(
-                <Card key={producto.id} className="" style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={producto.img} className="img-producto"  />
-                <Card.Body>
-                  <Card.Title>{producto.name}</Card.Title>
-                  <Card.Text>
-                  <p>Precio: ${producto.precio}</p>
-                    <p>Categoria: {producto.category}</p>
-                  </Card.Text>
-                  <Link to={`/item/${producto.id}`} className="btn btn-primary " >Ver Más</Link>
-              
-                  
-                </Card.Body>
-              </Card>
-              ))}
-              </div>*/
                 <ol className="container">
                   {productos && productos.map((producto) => (
                     <li key={producto.id} className="fila-producto">
